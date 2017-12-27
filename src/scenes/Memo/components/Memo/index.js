@@ -1,4 +1,5 @@
 import React from 'react';
+import { Header, List } from 'semantic-ui-react';
 
 import MemoLine from '../MemoLine';
 
@@ -26,13 +27,19 @@ class Memo extends React.Component {
   render() {
     return (
       <div className='memo'>
-        <h3>{this.state.name}</h3>
-        <div>{this.state.created_on} ({this.state.created_by})</div>
-        <ul>
+        <Header as='h2'>
+          <Header.Content>
+            {this.state.name}
+          </Header.Content>
+          <Header.Subheader>
+            {this.state.created_on} ({this.state.created_by})
+          </Header.Subheader>
+        </Header>
+        <List>
           {this.state.lines.map(line => {
             return (<MemoLine line={line} />);
           })}
-        </ul>
+        </List>
       </div>
     )
   }

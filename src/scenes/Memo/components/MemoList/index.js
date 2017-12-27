@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { Header, List } from 'semantic-ui-react';
 
 class MemoList extends React.Component {
   constructor(props) {
@@ -26,19 +27,25 @@ class MemoList extends React.Component {
   render() {
     return (
       <div className='memo'>
-        <h3>Kaikki memot</h3>
-        <ul>
+        <Header as='h2'>Kaikki memot</Header>
+        <List size='large'>
           {this.state.memos.map(memo => {
             return (
-              <li key={memo.name}>
-                <Link to={{ pathname: `/memo/${memo.name}` }}>
-                  {memo.name}
-                </Link> (
-                {memo.created_on} by {memo.created_by})
-              </li>
+              <List.Item key={memo.name}>
+                <List.Content>
+                  <List.Header>
+                    <Link to={{ pathname: `/memo/${memo.name}` }}>
+                      {memo.name}
+                    </Link>
+                  </List.Header>
+                  <List.Description>
+                    {memo.created_on} ({memo.created_by})
+                  </List.Description>
+                </List.Content>
+              </List.Item>
             );
           })}
-        </ul>
+        </List>
       </div>
     )
   }

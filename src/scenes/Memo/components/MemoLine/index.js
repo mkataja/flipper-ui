@@ -1,10 +1,19 @@
 import React from 'react';
+import { List } from 'semantic-ui-react';
 
 function MemoLine(props) {
   return (
-    <li>
-      {props.line.content} ({props.line.created_on} by {props.line.created_by})
-    </li>
+    <List.Item>
+      <List.Icon color='orange' size='large' style={{fontWeight: 'bold'}}>></List.Icon>
+      <List.Content>
+        <List.Header>
+          {props.line.content}
+        </List.Header>
+        <List.Description>
+          {props.line.created_on} ({props.line.created_by})
+      </List.Description>
+      </List.Content>
+    </List.Item>
   );
 }
 
