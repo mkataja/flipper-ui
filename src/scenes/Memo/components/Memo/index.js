@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header, List } from 'semantic-ui-react';
+import Ago from 'react-ago-component';
 
 import MemoLine from '../MemoLine';
 
@@ -32,7 +33,7 @@ class Memo extends React.Component {
             {this.state.name}
           </Header.Content>
           <Header.Subheader>
-            {this.state.created_on} ({this.state.created_by})
+            <Ago date={this.state.created_on} /> ({this.state.created_by})
           </Header.Subheader>
         </Header>
         <List>

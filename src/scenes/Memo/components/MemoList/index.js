@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Header, List } from 'semantic-ui-react';
+import Ago from 'react-ago-component';
 
 class MemoList extends React.Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class MemoList extends React.Component {
                     </Link>
                   </List.Header>
                   <List.Description>
-                    {memo.created_on} ({memo.created_by})
+                    <Ago date={memo.created_on} /> ({memo.created_by})
                   </List.Description>
                 </List.Content>
               </List.Item>
